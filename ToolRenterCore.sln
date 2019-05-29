@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28917.181
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToolRenterCore.API", "ToolRenterCore.API\ToolRenterCore.API.csproj", "{21477777-64D6-4E13-B26A-27AA79CB4B60}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToolRenterCore.API.DataContract", "ToolRenterCore.API.DataContract\ToolRenterCore.API.DataContract.csproj", "{47149E4E-B14D-41F6-8FB7-1435ADE387AF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToolRenterCore.Business", "ToolRenterCore.Business\ToolRenterCore.Business.csproj", "{C3A65C22-C7F2-4DA4-88C3-552F222B3528}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToolRenterCore.Business.DataContract", "ToolRenterCore.Business.DataContract\ToolRenterCore.Business.DataContract.csproj", "{5F6EB2D5-A233-45DA-A175-1AB48B0B048A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToolRenterCore.Database", "ToolRenterCore.Database\ToolRenterCore.Database.csproj", "{D106D4AD-C42E-4D06-93F1-82C011F6B5A0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToolRenterCore.Database.DataContract", "ToolRenterCore.Database.DataContract\ToolRenterCore.Database.DataContract.csproj", "{F4A30607-A637-4BF0-A925-E480B64AB15C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{21477777-64D6-4E13-B26A-27AA79CB4B60}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{21477777-64D6-4E13-B26A-27AA79CB4B60}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{21477777-64D6-4E13-B26A-27AA79CB4B60}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{21477777-64D6-4E13-B26A-27AA79CB4B60}.Release|Any CPU.Build.0 = Release|Any CPU
+		{47149E4E-B14D-41F6-8FB7-1435ADE387AF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{47149E4E-B14D-41F6-8FB7-1435ADE387AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{47149E4E-B14D-41F6-8FB7-1435ADE387AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{47149E4E-B14D-41F6-8FB7-1435ADE387AF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C3A65C22-C7F2-4DA4-88C3-552F222B3528}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C3A65C22-C7F2-4DA4-88C3-552F222B3528}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C3A65C22-C7F2-4DA4-88C3-552F222B3528}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C3A65C22-C7F2-4DA4-88C3-552F222B3528}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5F6EB2D5-A233-45DA-A175-1AB48B0B048A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5F6EB2D5-A233-45DA-A175-1AB48B0B048A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5F6EB2D5-A233-45DA-A175-1AB48B0B048A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5F6EB2D5-A233-45DA-A175-1AB48B0B048A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D106D4AD-C42E-4D06-93F1-82C011F6B5A0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D106D4AD-C42E-4D06-93F1-82C011F6B5A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D106D4AD-C42E-4D06-93F1-82C011F6B5A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D106D4AD-C42E-4D06-93F1-82C011F6B5A0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F4A30607-A637-4BF0-A925-E480B64AB15C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F4A30607-A637-4BF0-A925-E480B64AB15C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F4A30607-A637-4BF0-A925-E480B64AB15C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F4A30607-A637-4BF0-A925-E480B64AB15C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F3DD5714-A393-4890-862C-38238F6F7666}
+	EndGlobalSection
+EndGlobal
