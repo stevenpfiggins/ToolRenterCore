@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace ToolRenterCore.API.DataContract.Request
+namespace ToolRenterCore.Business.DataContract.Request.DTOs
 {
-    public class RequestCreateRequest
+    public class RequestCreateDTO
     {
         public int EquipmentEntityId { get; set; }
         public DateTimeOffset BeginningDateRequestedUtc { get; set; }
         public DateTimeOffset EndingDateRequestedUtc { get; set; }
+        public DateTimeOffset CreatedUtc { get; set; }
+        public int OwnerId { get; set; }
     }
 }

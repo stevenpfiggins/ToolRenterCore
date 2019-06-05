@@ -23,9 +23,15 @@ using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using Swashbuckle.AspNetCore.Swagger;
 using ToolRenterCore.API.MappingProfiles;
+using ToolRenterCore.Business.DataContract.Auth.Interfaces;
+using ToolRenterCore.Business.Managers.Auth;
+using ToolRenterCore.Database.Auth;
 using ToolRenterCore.Database.Contexts;
+using ToolRenterCore.Database.DataContract.Auth.Interfaces;
+using ToolRenterCore.Database.DataContract.Roles;
 using ToolRenterCore.Database.Entities.People;
 using ToolRenterCore.Database.Entities.Roles;
+using ToolRenterCore.Database.Roles;
 using ToolRenterCore.Database.SeedData;
 
 namespace ToolRenterCore.API
@@ -99,6 +105,9 @@ namespace ToolRenterCore.API
             services.AddTransient<SeedRepository>();
 
             // Interfaces
+            services.AddScoped<IAuthManager, AuthManager>();
+            services.AddScoped<IAuthRepository, AuthRepository>();
+            services.AddScoped<IRoleRepository, RoleRepository>();
 
             // Swagger
             services.AddSwaggerGen(c =>
