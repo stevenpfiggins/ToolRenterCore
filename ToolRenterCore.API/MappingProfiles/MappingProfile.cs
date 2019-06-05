@@ -4,8 +4,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using ToolRenterCore.API.DataContract.Auth;
+using ToolRenterCore.API.DataContract.Equipment;
 using ToolRenterCore.Business.DataContract.Auth.DTOs;
+using ToolRenterCore.Business.DataContract.Equipment;
 using ToolRenterCore.Database.DataContract.Auth.RAOs;
+using ToolRenterCore.Database.DataContract.Equipment;
 using ToolRenterCore.Database.Entities.People;
 
 namespace ToolRenterCore.API.MappingProfiles
