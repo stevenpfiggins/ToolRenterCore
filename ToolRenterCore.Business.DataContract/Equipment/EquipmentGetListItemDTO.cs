@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace ToolRenterCore.API.DataContract.Equipment
+namespace ToolRenterCore.Business.DataContract.Equipment
 {
-    public class EquipmentGetListItemResponse
+    public class EquipmentGetListItemDTO
     {
         public int EquipmentEntityId { get; set; }
         public int OwnerId { get; set; }

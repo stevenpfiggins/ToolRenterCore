@@ -18,6 +18,16 @@ namespace ToolRenterCore.API.MappingProfiles
             CreateMap<EquipmentCreateRequest, EquipmentCreateDTO>();
             CreateMap<EquipmentCreateDTO, EquipmentCreateRAO>();
             CreateMap<EquipmentCreateRAO, EquipmentEntity>();
+
+            //Equipment Get Mapping
+            CreateMap<EquipmentEntity, EquipmentGetListItemRAO>();
+            CreateMap<EquipmentGetListItemRAO, EquipmentGetListItemDTO>();
+            CreateMap<EquipmentGetListItemDTO, EquipmentGetListItemResponse>();
+
+            //Equipment Update Mapping
+            CreateMap<EquipmentUpdateRequest, EquipmentUpdateDTO>();
+            CreateMap<EquipmentUpdateDTO, EquipmentUpdateRAO>();
+            CreateMap<EquipmentUpdateRAO, EquipmentEntity>();
         }
     }
 }

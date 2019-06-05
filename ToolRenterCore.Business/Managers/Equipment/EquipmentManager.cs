@@ -33,5 +33,41 @@ namespace ToolRenterCore.Business.Managers.Equipment
 
             throw new NotImplementedException();
         }
+
+        public async Task<IEnumerable<EquipmentGetListItemDTO>> GetEquipment()
+        {
+            var rao = await _repository.GetEquipment();
+            var dto = _mapper.Map<IEnumerable<EquipmentGetListItemDTO>>(rao);
+
+            return dto;
+        }
+
+        public async Task<EquipmentGetListItemDTO> GetEquipmentById(int id)
+        {
+            var rao = await _repository.GetEquipmentById(id);
+            var dto = _mapper.Map<EquipmentGetListItemDTO>(rao);
+
+            return dto;
+        }
+
+        public async Task<bool> UpdateEquipment(EquipmentUpdateDTO dto)
+        {
+            var rao = _mapper.Map<EquipmentUpdateRAO>(dto);
+            var engine = new SaveFileEngine();
+            var uri = engine.Upload(dto.PhotoUpload);
+            rao.PhotoLink = uri;
+
+            if (await _repository.UpdateEquipment(rao))
+                return true;
+
+            throw new NotImplementedException();
+        }
+
+        public async Task<bool> DeleteEquipment(int id)
+        {
+            if (await _repository.DeleteEquipment(id))
+                return true;
+            throw new NotImplementedException();
+        }
     }
 }
