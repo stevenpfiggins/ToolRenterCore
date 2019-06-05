@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ToolRenterCore.Database.Contexts;
 
 namespace ToolRenterCore.Database.Migrations
 {
     [DbContext(typeof(ToolRenterContext))]
-    partial class ToolRenterContextModelSnapshot : ModelSnapshot
+    [Migration("20190603164219_newDb")]
+    partial class newDb
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -118,7 +120,6 @@ namespace ToolRenterCore.Database.Migrations
 
                     b.ToTable("EquipmentTableAccess");
                 });
-
 
             modelBuilder.Entity("ToolRenterCore.Database.Entities.People.UserEntity", b =>
                 {

@@ -24,13 +24,17 @@ using Microsoft.IdentityModel.Tokens;
 using Swashbuckle.AspNetCore.Swagger;
 using ToolRenterCore.API.MappingProfiles;
 using ToolRenterCore.Business.DataContract.Auth.Interfaces;
+using ToolRenterCore.Business.DataContract.Equipment;
 using ToolRenterCore.Business.Managers.Auth;
+using ToolRenterCore.Business.Managers.Equipment;
 using ToolRenterCore.Database.Auth;
 using ToolRenterCore.Database.Contexts;
 using ToolRenterCore.Database.DataContract.Auth.Interfaces;
+using ToolRenterCore.Database.DataContract.Equipment;
 using ToolRenterCore.Database.DataContract.Roles;
 using ToolRenterCore.Database.Entities.People;
 using ToolRenterCore.Database.Entities.Roles;
+using ToolRenterCore.Database.Equipment;
 using ToolRenterCore.Database.Roles;
 using ToolRenterCore.Database.SeedData;
 
@@ -98,6 +102,7 @@ namespace ToolRenterCore.API
             var mappingConfig = new MapperConfiguration(mc =>
             {
                 mc.AddProfile(new MappingProfile());
+                mc.AddProfile(new EquipmentMappingProfile());
             });
 
             IMapper mapper = mappingConfig.CreateMapper();
@@ -107,7 +112,10 @@ namespace ToolRenterCore.API
             // Interfaces
             services.AddScoped<IAuthManager, AuthManager>();
             services.AddScoped<IAuthRepository, AuthRepository>();
-            services.AddScoped<IRoleRepository, RoleRepository>();
+            services.AddScoped<IRoleRepository, RoleRepository>();            
+            services.AddScoped<IEquipmentManager, EquipmentManager>();
+            services.AddScoped<IEquipmentRepository, EquipmentRepository>();
+
 
             // Swagger
             services.AddSwaggerGen(c =>
