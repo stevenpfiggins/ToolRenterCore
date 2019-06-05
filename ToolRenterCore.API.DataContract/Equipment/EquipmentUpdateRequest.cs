@@ -11,6 +11,7 @@ namespace ToolRenterCore.API.DataContract.Equipment
         public int EquipmentTypeEntityId { get; set; }
         public int OwnerId { get; set; }
         public string EquipmentName { get; set; }
+        public int EquipmentTypeEntityId { get; set; }
         public string EquipmentDescription { get; set; }
         public decimal EquipmentRate { get; set; }
         public DateTimeOffset ModifiedUtc { get; set; }

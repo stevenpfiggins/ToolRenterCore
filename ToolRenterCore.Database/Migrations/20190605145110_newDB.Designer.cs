@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ToolRenterCore.Database.Contexts;
 
 namespace ToolRenterCore.Database.Migrations
 {
     [DbContext(typeof(ToolRenterContext))]
-    partial class ToolRenterContextModelSnapshot : ModelSnapshot
+    [Migration("20190605145110_newDB")]
+    partial class newDB
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -88,37 +90,6 @@ namespace ToolRenterCore.Database.Migrations
 
                     b.ToTable("AspNetUserTokens");
                 });
-
-            modelBuilder.Entity("ToolRenterCore.Database.Entities.Equipment.EquipmentEntity", b =>
-                {
-                    b.Property<int>("EquipmentEntityId")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<DateTimeOffset?>("CreatedUtc");
-
-                    b.Property<string>("EquipmentDescription")
-                        .IsRequired();
-
-                    b.Property<string>("EquipmentName")
-                        .IsRequired();
-
-                    b.Property<decimal>("EquipmentRate");
-
-                    b.Property<int>("EquipmentTypeEntityId");
-
-                    b.Property<DateTimeOffset?>("ModifiedUtc");
-
-                    b.Property<int>("OwnerId");
-
-                    b.Property<string>("PhotoLink")
-                        .IsRequired();
-
-                    b.HasKey("EquipmentEntityId");
-
-                    b.ToTable("EquipmentTableAccess");
-                });
-
 
             modelBuilder.Entity("ToolRenterCore.Database.Entities.People.UserEntity", b =>
                 {

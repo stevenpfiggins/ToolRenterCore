@@ -112,8 +112,7 @@ namespace ToolRenterCore.API
             // Interfaces
             services.AddScoped<IAuthManager, AuthManager>();
             services.AddScoped<IAuthRepository, AuthRepository>();
-            services.AddScoped<IRoleRepository, RoleRepository>();
-            
+            services.AddScoped<IRoleRepository, RoleRepository>();            
             services.AddScoped<IEquipmentManager, EquipmentManager>();
             services.AddScoped<IEquipmentRepository, EquipmentRepository>();
 
