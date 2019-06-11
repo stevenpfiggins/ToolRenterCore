@@ -10,7 +10,6 @@ namespace ToolRenterCore.API.DataContract.Equipment
         public string EquipmentName { get; set; }
         public int EquipmentTypeEntityId { get; set; }
         public string EquipmentDescription { get; set; }
-        public int EquipmentTypeEntityId { get; set; }
         public decimal EquipmentRate { get; set; }
         public IFormFile PhotoUpload { get; set; }
     }

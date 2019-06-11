@@ -8,7 +8,6 @@ namespace ToolRenterCore.API.DataContract.Equipment
     public class EquipmentUpdateRequest
     {
         public int EquipmentEntityId { get; set; }
-        public int EquipmentTypeEntityId { get; set; }
         public int OwnerId { get; set; }
         public string EquipmentName { get; set; }
         public int EquipmentTypeEntityId { get; set; }
