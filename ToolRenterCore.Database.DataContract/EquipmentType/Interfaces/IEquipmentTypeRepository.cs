@@ -10,6 +10,8 @@ namespace ToolRenterCore.Database.DataContract.EquipmentType.Interfaces
     {
         Task<bool> CreateEquipmentType(EquipmentTypeCreateRAO rao);
         Task<IEnumerable<EquipmentTypeListItemRAO>> GetEquipmentType();
-
+        Task<EquipmentTypeListItemRAO> GetEquipmentTypeById(int id);
+        Task<bool> UpdateEquipmentType(EquipmentTypeUpdateRAO rao);
+        Task<bool> DeleteEquipmentType(int id);
     }
 }

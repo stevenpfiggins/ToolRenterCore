@@ -30,12 +30,36 @@ namespace ToolRenterCore.Business.Managers.EquipmentType
             throw new NotImplementedException();
         }
 
+
         public async Task<IEnumerable<EquipmentTypeListItemDTO>> GetEquipmentType()
         {
             var rao = await _repository.GetEquipmentType();
             var dto = _mapper.Map<IEnumerable<EquipmentTypeListItemDTO>>(rao);
 
             return dto;
+        }
+
+        public async Task<EquipmentTypeListItemDTO> GetEquipmentTypeById(int id)
+        {
+            var rao = await _repository.GetEquipmentTypeById(id);
+            var dto = _mapper.Map<EquipmentTypeListItemDTO>(rao);
+
+            return dto;
+        }
+
+        public async Task<bool> UpdateEquipmentType(EquipmentTypeUpdateDTO dto)
+        {
+            var rao = _mapper.Map<EquipmentTypeUpdateRAO>(dto);
+            if (await _repository.UpdateEquipmentType(rao))
+                return true;
+
+            throw new NotImplementedException();
+        }
+        public async Task<bool> DeleteEquipmentType(int id)
+        {
+            if (await _repository.DeleteEquipmentType(id))
+                return true;
+            throw new NotImplementedException();
         }
     }
 }

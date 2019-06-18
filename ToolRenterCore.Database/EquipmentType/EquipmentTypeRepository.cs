@@ -39,5 +39,29 @@ namespace ToolRenterCore.Database.EquipmentType
 
             return rao;
         }
+
+        public async Task<EquipmentTypeListItemRAO> GetEquipmentTypeById(int id)
+        {
+            var query = await _context.EquipmentTypeTableAccess.SingleAsync(q => q.EquipmentTypeEntityId == id);
+            var rao = _mapper.Map<EquipmentTypeListItemRAO>(query);
+
+            return rao;
+        }
+
+        public async Task<bool> UpdateEquipmentType(EquipmentTypeUpdateRAO rao)
+        {
+            var entity = await _context.EquipmentTypeTableAccess.SingleOrDefaultAsync(e => e.EquipmentTypeEntityId == rao.EquipmentTypeEntityId);
+            entity.EquipmentTypeEntityId = rao.EquipmentTypeEntityId;
+            entity.EquipmentTypeString = rao.EquipmentTypeString;
+
+            return await _context.SaveChangesAsync() == 1;
+        }
+        public async Task<bool> DeleteEquipmentType(int id)
+        {
+            var query = await _context.EquipmentTypeTableAccess.SingleAsync(q => q.EquipmentTypeEntityId == id);
+            _context.EquipmentTypeTableAccess.Remove(query);
+
+            return await _context.SaveChangesAsync() == 1;
+        }
     }
 }

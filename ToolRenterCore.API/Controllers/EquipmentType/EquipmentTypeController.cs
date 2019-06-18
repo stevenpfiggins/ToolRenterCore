@@ -25,6 +25,7 @@ namespace ToolRenterCore.API.Controllers.EquipmentType
             _manager = manager;
         }
 
+        //Create Equipment Type
         [HttpPost]
         public async Task<IActionResult> PostEquipmentType(EquipmentTypeCreateRequest request)
         {
@@ -52,6 +53,54 @@ namespace ToolRenterCore.API.Controllers.EquipmentType
             var response = _mapper.Map<IEnumerable<EquipmentTypeListItemResponse>>(dto);
 
             return Ok(response); //Handle Exceptions
+        }
+
+        //GET EquipmentType Detail
+        [HttpGet("{id}")]
+        //[Authorize(Roles = "User")]
+        public async Task<IActionResult> GetEquipmentTypeById(int id)
+        {
+            if (!ModelState.IsValid)
+            {
+                return StatusCode(400);
+            }
+
+            var dto = await _manager.GetEquipmentTypeById(id);
+            var response = _mapper.Map<EquipmentTypeListItemResponse>(dto);
+
+            return Ok(response);
+        }
+
+        //PUT Equipment Type Update
+        [HttpPut]
+        public async Task<IActionResult> UpdateEquipmentType(EquipmentTypeUpdateRequest request)
+        {
+            if (!ModelState.IsValid)
+            {
+                return StatusCode(400);
+            }
+
+            var dto = _mapper.Map<EquipmentTypeUpdateDTO>(request);
+
+            if (await _manager.UpdateEquipmentType(dto))
+                return StatusCode(202);
+
+            throw new Exception();
+        }
+
+        //POST Equipment Type Delete
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteEquipmentType(int id)
+        {
+            if (!ModelState.IsValid)
+            {
+                return StatusCode(400);
+            }
+
+            if (await _manager.DeleteEquipmentType(id))
+                return StatusCode(207);
+
+            throw new Exception();
         }
     }
 }
