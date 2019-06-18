@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace ToolRenterCore.Database.Migrations
 {
-    public partial class newDb : Migration
+    public partial class ChangedUpdatedUtcToModifiedUtc : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -67,6 +67,24 @@ namespace ToolRenterCore.Database.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_EquipmentTableAccess", x => x.EquipmentEntityId);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "RequestTableAccess",
+                columns: table => new
+                {
+                    RequestEntityId = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    OwnerId = table.Column<int>(nullable: false),
+                    EquipmentEntityId = table.Column<int>(nullable: false),
+                    BeginningDateRequestedUtc = table.Column<DateTimeOffset>(nullable: false),
+                    EndingDateRequestedUtc = table.Column<DateTimeOffset>(nullable: false),
+                    CreatedUtc = table.Column<DateTimeOffset>(nullable: false),
+                    ModifiedUtc = table.Column<DateTimeOffset>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_RequestTableAccess", x => x.RequestEntityId);
                 });
 
             migrationBuilder.CreateTable(
@@ -234,6 +252,9 @@ namespace ToolRenterCore.Database.Migrations
 
             migrationBuilder.DropTable(
                 name: "EquipmentTableAccess");
+
+            migrationBuilder.DropTable(
+                name: "RequestTableAccess");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");

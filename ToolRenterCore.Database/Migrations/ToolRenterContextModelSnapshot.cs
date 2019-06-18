@@ -119,7 +119,6 @@ namespace ToolRenterCore.Database.Migrations
                     b.ToTable("EquipmentTableAccess");
                 });
 
-
             modelBuilder.Entity("ToolRenterCore.Database.Entities.People.UserEntity", b =>
                 {
                     b.Property<int>("Id")
@@ -170,6 +169,29 @@ namespace ToolRenterCore.Database.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers");
+                });
+
+            modelBuilder.Entity("ToolRenterCore.Database.Entities.Request.RequestEntity", b =>
+                {
+                    b.Property<int>("RequestEntityId")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTimeOffset>("BeginningDateRequestedUtc");
+
+                    b.Property<DateTimeOffset>("CreatedUtc");
+
+                    b.Property<DateTimeOffset>("EndingDateRequestedUtc");
+
+                    b.Property<int>("EquipmentEntityId");
+
+                    b.Property<DateTimeOffset?>("ModifiedUtc");
+
+                    b.Property<int>("OwnerId");
+
+                    b.HasKey("RequestEntityId");
+
+                    b.ToTable("RequestTableAccess");
                 });
 
             modelBuilder.Entity("ToolRenterCore.Database.Entities.Roles.RoleEntity", b =>
