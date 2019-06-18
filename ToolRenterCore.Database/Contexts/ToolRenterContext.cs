@@ -7,7 +7,9 @@ using System.Text;
 using ToolRenterCore.Database.Entities.Equipment;
 using ToolRenterCore.Database.Entities.EquipmentType;
 using ToolRenterCore.Database.Entities.People;
+using ToolRenterCore.Database.Entities.Request;
 using ToolRenterCore.Database.Entities.Roles;
+using ToolRenterCore.Database.Entities.UserProfile;
 
 namespace ToolRenterCore.Database.Contexts
 {
@@ -27,6 +29,8 @@ namespace ToolRenterCore.Database.Contexts
         public DbSet<UserEntity> UserTableAccess { get; set; }
         public DbSet<EquipmentEntity> EquipmentTableAccess { get; set; }
         public DbSet<EquipmentTypeEntity> EquipmentTypeTableAccess { get; set; }
+        public DbSet<RequestEntity> RequestTableAccess { get; set; }
+        public DbSet<UserProfileEntity> UserProfileTableAccess { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

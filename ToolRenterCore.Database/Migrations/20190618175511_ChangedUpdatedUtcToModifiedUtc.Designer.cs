@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ToolRenterCore.Database.Contexts;
 
 namespace ToolRenterCore.Database.Migrations
 {
     [DbContext(typeof(ToolRenterContext))]
-    partial class ToolRenterContextModelSnapshot : ModelSnapshot
+    [Migration("20190618175511_ChangedUpdatedUtcToModifiedUtc")]
+    partial class ChangedUpdatedUtcToModifiedUtc
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -117,31 +119,6 @@ namespace ToolRenterCore.Database.Migrations
                     b.HasKey("EquipmentEntityId");
 
                     b.ToTable("EquipmentTableAccess");
-                });
-
-            modelBuilder.Entity("ToolRenterCore.Database.Entities.EquipmentType.EquipmentTypeEntity", b =>
-                {
-                    b.Property<int>("EquipmentTypeEntityId")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("EquipmentTypeString");
-
-                    b.HasKey("EquipmentTypeEntityId");
-
-                    b.ToTable("EquipmentTypeTableAccess");
-
-                    b.HasData(
-                        new
-                        {
-                            EquipmentTypeEntityId = 1,
-                            EquipmentTypeString = "Water Animal"
-                        },
-                        new
-                        {
-                            EquipmentTypeEntityId = 2,
-                            EquipmentTypeString = "Land Animal"
-                        });
                 });
 
             modelBuilder.Entity("ToolRenterCore.Database.Entities.People.UserEntity", b =>
