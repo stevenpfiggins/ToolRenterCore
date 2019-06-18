@@ -31,7 +31,6 @@ using ToolRenterCore.Business.Managers.Equipment;
 using ToolRenterCore.Business.Managers.EquipmentType;
 using ToolRenterCore.Business.DataContract.Request.Interfaces;
 using ToolRenterCore.Business.DataContract.UserProfile.Interfaces;
-using ToolRenterCore.Business.Managers.Auth;
 using ToolRenterCore.Business.Managers.Request;
 using ToolRenterCore.Business.Managers.UserProfile;
 using ToolRenterCore.Database.Auth;
@@ -48,6 +47,8 @@ using ToolRenterCore.Database.Request;
 using ToolRenterCore.Database.Roles;
 using ToolRenterCore.Database.SeedData;
 using ToolRenterCore.Database.UserProfile;
+using ToolRenterCore.Database.DataContract.Auth.Interfaces;
+using ToolRenterCore.Database.DataContract.Equipment;
 
 namespace ToolRenterCore.API
 {
