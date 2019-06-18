@@ -12,8 +12,6 @@
 
   <ItemGroup>
     <Folder Include="EquipmentType\Interfaces\" />
-    <Folder Include="UserProfile\DTOs\" />
-    <Folder Include="UserProfile\Interfaces\" />
   </ItemGroup>
 
 </Project>

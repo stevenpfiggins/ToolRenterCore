@@ -26,21 +26,25 @@ using ToolRenterCore.API.MappingProfiles;
 using ToolRenterCore.Business.DataContract.Auth.Interfaces;
 using ToolRenterCore.Business.DataContract.Equipment;
 using ToolRenterCore.Business.DataContract.Request.Interfaces;
+using ToolRenterCore.Business.DataContract.UserProfile.Interfaces;
 using ToolRenterCore.Business.Managers.Auth;
 using ToolRenterCore.Business.Managers.Equipment;
 using ToolRenterCore.Business.Managers.Request;
+using ToolRenterCore.Business.Managers.UserProfile;
 using ToolRenterCore.Database.Auth;
 using ToolRenterCore.Database.Contexts;
 using ToolRenterCore.Database.DataContract.Auth.Interfaces;
 using ToolRenterCore.Database.DataContract.Equipment;
 using ToolRenterCore.Database.DataContract.Request.Interfaces;
 using ToolRenterCore.Database.DataContract.Roles;
+using ToolRenterCore.Database.DataContract.UserProfile.Interfaces;
 using ToolRenterCore.Database.Entities.People;
 using ToolRenterCore.Database.Entities.Roles;
 using ToolRenterCore.Database.Equipment;
 using ToolRenterCore.Database.Request;
 using ToolRenterCore.Database.Roles;
 using ToolRenterCore.Database.SeedData;
+using ToolRenterCore.Database.UserProfile;
 
 namespace ToolRenterCore.API
 {
@@ -108,6 +112,7 @@ namespace ToolRenterCore.API
                 mc.AddProfile(new MappingProfile());
                 mc.AddProfile(new EquipmentMappingProfile());
                 mc.AddProfile(new RequestMappingProfile());
+                mc.AddProfile(new UserProfileMappingProfile());
             });
 
             IMapper mapper = mappingConfig.CreateMapper();
@@ -122,6 +127,8 @@ namespace ToolRenterCore.API
             services.AddScoped<IEquipmentRepository, EquipmentRepository>();
             services.AddScoped<IRequestManager, RequestManager>();
             services.AddScoped<IRequestRepository, RequestRepository>();
+            services.AddScoped<IUserProfileManager, UserProfileManager>();
+            services.AddScoped<IUserProfileRepository, UserProfileRepository>();
 
 
             // Swagger
