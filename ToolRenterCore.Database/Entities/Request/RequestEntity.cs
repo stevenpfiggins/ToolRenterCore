@@ -22,6 +22,6 @@ namespace ToolRenterCore.Database.Entities.Request
         [Required]
         public DateTimeOffset EndingDateRequestedUtc { get; set; }
         public DateTimeOffset CreatedUtc { get; set; }
-        public DateTimeOffset? UpdatedUtc { get; set; }
+        public DateTimeOffset? ModifiedUtc { get; set; }
     }
 }

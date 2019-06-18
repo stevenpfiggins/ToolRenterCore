@@ -10,8 +10,8 @@ using ToolRenterCore.Database.Contexts;
 namespace ToolRenterCore.Database.Migrations
 {
     [DbContext(typeof(ToolRenterContext))]
-    [Migration("20190603164219_newDb")]
-    partial class newDb
+    [Migration("20190618175511_ChangedUpdatedUtcToModifiedUtc")]
+    partial class ChangedUpdatedUtcToModifiedUtc
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -171,6 +171,29 @@ namespace ToolRenterCore.Database.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers");
+                });
+
+            modelBuilder.Entity("ToolRenterCore.Database.Entities.Request.RequestEntity", b =>
+                {
+                    b.Property<int>("RequestEntityId")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTimeOffset>("BeginningDateRequestedUtc");
+
+                    b.Property<DateTimeOffset>("CreatedUtc");
+
+                    b.Property<DateTimeOffset>("EndingDateRequestedUtc");
+
+                    b.Property<int>("EquipmentEntityId");
+
+                    b.Property<DateTimeOffset?>("ModifiedUtc");
+
+                    b.Property<int>("OwnerId");
+
+                    b.HasKey("RequestEntityId");
+
+                    b.ToTable("RequestTableAccess");
                 });
 
             modelBuilder.Entity("ToolRenterCore.Database.Entities.Roles.RoleEntity", b =>
