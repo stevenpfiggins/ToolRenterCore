@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ToolRenterCore.Database.Contexts;
 
 namespace ToolRenterCore.Database.Migrations
 {
     [DbContext(typeof(ToolRenterContext))]
-    partial class ToolRenterContextModelSnapshot : ModelSnapshot
+    [Migration("20190611154344_SeedData")]
+    partial class SeedData
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -194,29 +196,6 @@ namespace ToolRenterCore.Database.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers");
-                });
-
-            modelBuilder.Entity("ToolRenterCore.Database.Entities.Request.RequestEntity", b =>
-                {
-                    b.Property<int>("RequestEntityId")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<DateTimeOffset>("BeginningDateRequestedUtc");
-
-                    b.Property<DateTimeOffset>("CreatedUtc");
-
-                    b.Property<DateTimeOffset>("EndingDateRequestedUtc");
-
-                    b.Property<int>("EquipmentEntityId");
-
-                    b.Property<DateTimeOffset?>("ModifiedUtc");
-
-                    b.Property<int>("OwnerId");
-
-                    b.HasKey("RequestEntityId");
-
-                    b.ToTable("RequestTableAccess");
                 });
 
             modelBuilder.Entity("ToolRenterCore.Database.Entities.Roles.RoleEntity", b =>

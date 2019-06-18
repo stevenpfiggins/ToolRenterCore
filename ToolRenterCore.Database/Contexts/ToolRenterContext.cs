@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using ToolRenterCore.Database.Entities.Equipment;
+using ToolRenterCore.Database.Entities.EquipmentType;
 using ToolRenterCore.Database.Entities.People;
 using ToolRenterCore.Database.Entities.Request;
 using ToolRenterCore.Database.Entities.Roles;
@@ -27,6 +28,7 @@ namespace ToolRenterCore.Database.Contexts
 
         public DbSet<UserEntity> UserTableAccess { get; set; }
         public DbSet<EquipmentEntity> EquipmentTableAccess { get; set; }
+        public DbSet<EquipmentTypeEntity> EquipmentTypeTableAccess { get; set; }
         public DbSet<RequestEntity> RequestTableAccess { get; set; }
         public DbSet<UserProfileEntity> UserProfileTableAccess { get; set; }
 
@@ -48,6 +50,10 @@ namespace ToolRenterCore.Database.Contexts
                     .HasForeignKey(ur => ur.UserId)
                     .IsRequired();
             });
+
+            builder.Entity<EquipmentTypeEntity>().HasData(
+                new { EquipmentTypeEntityId = 1, EquipmentTypeString = "Water Animal" },
+                new { EquipmentTypeEntityId = 2, EquipmentTypeString = "Land Animal" });
         }
     }
 }

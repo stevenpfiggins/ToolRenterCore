@@ -91,7 +91,7 @@ namespace ToolRenterCore.API.Controllers.Equipment
 
         //POST Equipment Delete
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteSong(int id)
+        public async Task<IActionResult> DeleteEquipment(int id)
         {
             if (!ModelState.IsValid)
             {

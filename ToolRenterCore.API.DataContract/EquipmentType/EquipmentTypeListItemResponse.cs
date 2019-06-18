@@ -4,8 +4,9 @@ using System.Text;
 
 namespace ToolRenterCore.API.DataContract.EquipmentType
 {
-    public class EquipmentTypeCreateRequest
+    public class EquipmentTypeListItemResponse
     {
+        public int EquipmentTypeEntityId { get; set; }
         public string EquipmentTypeString { get; set; }
     }
 }

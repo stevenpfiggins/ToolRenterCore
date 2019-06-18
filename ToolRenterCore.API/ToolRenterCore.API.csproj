@@ -24,4 +24,8 @@
     <ProjectReference Include="..\ToolRenterCore.Database\ToolRenterCore.Database.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Controllers\EquipmentType\" />
+  </ItemGroup>
+
 </Project>
