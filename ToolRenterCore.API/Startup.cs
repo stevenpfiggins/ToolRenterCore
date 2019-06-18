@@ -23,10 +23,32 @@ using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using Swashbuckle.AspNetCore.Swagger;
 using ToolRenterCore.API.MappingProfiles;
+using ToolRenterCore.Business.DataContract.Auth.Interfaces;
+using ToolRenterCore.Business.DataContract.Equipment;
+using ToolRenterCore.Business.DataContract.EquipmentType.Interfaces;
+using ToolRenterCore.Business.Managers.Auth;
+using ToolRenterCore.Business.Managers.Equipment;
+using ToolRenterCore.Business.Managers.EquipmentType;
+using ToolRenterCore.Business.DataContract.Request.Interfaces;
+using ToolRenterCore.Business.DataContract.UserProfile.Interfaces;
+using ToolRenterCore.Business.Managers.Request;
+using ToolRenterCore.Business.Managers.UserProfile;
+using ToolRenterCore.Database.Auth;
 using ToolRenterCore.Database.Contexts;
+using ToolRenterCore.Database.DataContract.EquipmentType.Interfaces;
+using ToolRenterCore.Database.DataContract.Request.Interfaces;
+using ToolRenterCore.Database.DataContract.Roles;
+using ToolRenterCore.Database.DataContract.UserProfile.Interfaces;
 using ToolRenterCore.Database.Entities.People;
 using ToolRenterCore.Database.Entities.Roles;
+using ToolRenterCore.Database.Equipment;
+using ToolRenterCore.Database.EquipmentType;
+using ToolRenterCore.Database.Request;
+using ToolRenterCore.Database.Roles;
 using ToolRenterCore.Database.SeedData;
+using ToolRenterCore.Database.UserProfile;
+using ToolRenterCore.Database.DataContract.Auth.Interfaces;
+using ToolRenterCore.Database.DataContract.Equipment;
 
 namespace ToolRenterCore.API
 {
@@ -92,6 +114,10 @@ namespace ToolRenterCore.API
             var mappingConfig = new MapperConfiguration(mc =>
             {
                 mc.AddProfile(new MappingProfile());
+                mc.AddProfile(new EquipmentMappingProfile());
+                mc.AddProfile(new EquipmentTypeMappingProfile());
+                mc.AddProfile(new RequestMappingProfile());
+                mc.AddProfile(new UserProfileMappingProfile());
             });
 
             IMapper mapper = mappingConfig.CreateMapper();
@@ -99,6 +125,18 @@ namespace ToolRenterCore.API
             services.AddTransient<SeedRepository>();
 
             // Interfaces
+            services.AddScoped<IAuthManager, AuthManager>();
+            services.AddScoped<IAuthRepository, AuthRepository>();
+            services.AddScoped<IRoleRepository, RoleRepository>();            
+            services.AddScoped<IEquipmentManager, EquipmentManager>();
+            services.AddScoped<IEquipmentRepository, EquipmentRepository>();
+            services.AddScoped<IEquipmentTypeManager, EquipmentTypeManager>();
+            services.AddScoped<IEquipmentTypeRepository, EquipmentTypeRepository>();
+            services.AddScoped<IRequestManager, RequestManager>();
+            services.AddScoped<IRequestRepository, RequestRepository>();
+            services.AddScoped<IUserProfileManager, UserProfileManager>();
+            services.AddScoped<IUserProfileRepository, UserProfileRepository>();
+
 
             // Swagger
             services.AddSwaggerGen(c =>
