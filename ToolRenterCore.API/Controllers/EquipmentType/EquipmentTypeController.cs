@@ -4,6 +4,7 @@ using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using ToolRenterCore.API.DataContract.EquipmentType;
@@ -14,6 +15,8 @@ namespace ToolRenterCore.API.Controllers.EquipmentType
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize(Roles = "Admin")]
+
     public class EquipmentTypeController : ControllerBase
     {
         private readonly IMapper _mapper;
