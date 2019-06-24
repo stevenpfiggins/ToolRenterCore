@@ -23,7 +23,7 @@ namespace ToolRenterCore.Business.Managers.Request
 
         public async Task<bool> CreateRequest(RequestCreateDTO dto)
         {
-            var rao = Mapper.Map<RequestCreateRAO>(dto);
+            var rao = _mapper.Map<RequestCreateRAO>(dto);
 
             if (await _repository.CreateRequest(rao))
                 return true;

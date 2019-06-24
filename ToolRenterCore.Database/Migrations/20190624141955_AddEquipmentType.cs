@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace ToolRenterCore.Database.Migrations
 {
-    public partial class ChangedUpdatedUtcToModifiedUtc : Migration
+    public partial class AddEquipmentType : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -70,6 +70,19 @@ namespace ToolRenterCore.Database.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "EquipmentTypeTableAccess",
+                columns: table => new
+                {
+                    EquipmentTypeEntityId = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    EquipmentTypeString = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_EquipmentTypeTableAccess", x => x.EquipmentTypeEntityId);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "RequestTableAccess",
                 columns: table => new
                 {
@@ -85,6 +98,23 @@ namespace ToolRenterCore.Database.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_RequestTableAccess", x => x.RequestEntityId);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "UserProfileTableAccess",
+                columns: table => new
+                {
+                    UserProfileEntityId = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    OwnerId = table.Column<int>(nullable: false),
+                    ZipCode = table.Column<string>(nullable: false),
+                    ProfilePicture = table.Column<string>(nullable: false),
+                    CreatedUtc = table.Column<DateTimeOffset>(nullable: true),
+                    ModifiedUtc = table.Column<DateTimeOffset>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_UserProfileTableAccess", x => x.UserProfileEntityId);
                 });
 
             migrationBuilder.CreateTable(
@@ -193,6 +223,16 @@ namespace ToolRenterCore.Database.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.InsertData(
+                table: "EquipmentTypeTableAccess",
+                columns: new[] { "EquipmentTypeEntityId", "EquipmentTypeString" },
+                values: new object[] { 1, "Water Animal" });
+
+            migrationBuilder.InsertData(
+                table: "EquipmentTypeTableAccess",
+                columns: new[] { "EquipmentTypeEntityId", "EquipmentTypeString" },
+                values: new object[] { 2, "Land Animal" });
+
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
                 table: "AspNetRoleClaims",
@@ -254,7 +294,13 @@ namespace ToolRenterCore.Database.Migrations
                 name: "EquipmentTableAccess");
 
             migrationBuilder.DropTable(
+                name: "EquipmentTypeTableAccess");
+
+            migrationBuilder.DropTable(
                 name: "RequestTableAccess");
+
+            migrationBuilder.DropTable(
+                name: "UserProfileTableAccess");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");

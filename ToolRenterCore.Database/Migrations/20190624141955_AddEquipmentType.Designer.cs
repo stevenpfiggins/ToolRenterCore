@@ -10,8 +10,8 @@ using ToolRenterCore.Database.Contexts;
 namespace ToolRenterCore.Database.Migrations
 {
     [DbContext(typeof(ToolRenterContext))]
-    [Migration("20190618200240_AddedUserProfile")]
-    partial class AddedUserProfile
+    [Migration("20190624141955_AddEquipmentType")]
+    partial class AddEquipmentType
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -119,6 +119,31 @@ namespace ToolRenterCore.Database.Migrations
                     b.HasKey("EquipmentEntityId");
 
                     b.ToTable("EquipmentTableAccess");
+                });
+
+            modelBuilder.Entity("ToolRenterCore.Database.Entities.EquipmentType.EquipmentTypeEntity", b =>
+                {
+                    b.Property<int>("EquipmentTypeEntityId")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("EquipmentTypeString");
+
+                    b.HasKey("EquipmentTypeEntityId");
+
+                    b.ToTable("EquipmentTypeTableAccess");
+
+                    b.HasData(
+                        new
+                        {
+                            EquipmentTypeEntityId = 1,
+                            EquipmentTypeString = "Water Animal"
+                        },
+                        new
+                        {
+                            EquipmentTypeEntityId = 2,
+                            EquipmentTypeString = "Land Animal"
+                        });
                 });
 
             modelBuilder.Entity("ToolRenterCore.Database.Entities.People.UserEntity", b =>
